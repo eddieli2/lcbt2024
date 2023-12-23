@@ -3,7 +3,7 @@
 2:df_mb2表示df_mb的一个副本
 '''
 import pandas as pd
-import openpyxl
+#import openpyxl
 '''
 将每个月的数据excle读入python程序中，存放在df变量中；
 将输出表格（仅包含表结构）也读入到python中，存放在变量df_mb中
