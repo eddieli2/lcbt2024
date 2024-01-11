@@ -34,32 +34,32 @@ df_202310=pd.read_excel("C:\\lishan\\venv_and_code\\lcbt2024\\data\\202310即期
 
 df_202311=pd.read_excel("C:\\lishan\\venv_and_code\\lcbt2024\\data\\202311即期.xlsx",dtype=object)
 
-#df_202312=pd.read_excel("C:\\lishan\\venv_and_code\\lcbt2024\\data\\202312即期.xlsx",dtype=object)
+df_202312=pd.read_excel("C:\\lishan\\venv_and_code\\lcbt2024\\data\\202312即期.xlsx",dtype=object)
 
 df_mb=pd.read_excel("C:\\lishan\\venv_and_code\\lcbt2024\\data\\2023年度个贷业务利差补贴明细表.xlsx")
 
 '''
 先将df_mb的序号0到9的列使用当年12月的对应数据填入
 '''
-df_mb["合同号"]=df_202311["合同号"]
+df_mb["合同号"]=df_202312["合同号"]
 
-df_mb["客户身份证号码"]=df_202311["证件号码"]
+df_mb["客户身份证号码"]=df_202312["证件号码"]
 
-df_mb["客户姓名名称"]=df_202311["姓名"]
+df_mb["客户姓名名称"]=df_202312["姓名"]
 
-df_mb["贷款业务品种"]=df_202311["贷款品种2级"]
+df_mb["贷款业务品种"]=df_202312["贷款品种2级"]
 
-df_mb["贷款发放额度"]=df_202311["发放金额"]
+df_mb["贷款发放额度"]=df_202312["发放金额"]
 
-df_mb["户籍所在地"]=df_202311["户籍所在地"]
+df_mb["户籍所在地"]=df_202312["户籍所在地"]
 
-df_mb["户籍地址"]=df_202311["户籍地址"]
+df_mb["户籍地址"]=df_202312["户籍地址"]
 
-df_mb["利率浮动值"]=df_202311["利率浮动值"]
+df_mb["利率浮动值"]=df_202312["利率浮动值"]
 
 df_mb["是否执行先收后返"]="否"
 
-df_mb["贷款执行利率"]=df_202311["执行利率"]
+df_mb["贷款执行利率"]=df_202312["执行利率"]
 
 '''
 将每月数据excel中的余额填入到df_mb中对应的列中。
@@ -112,9 +112,9 @@ df_mb2=df_mb.copy()
 df_mb2=df_mb2.merge(df_202311, how="left", on=["合同号"])
 df_mb["2023年11月末"]=df_mb2["余额"]
 
-# df_mb2=df_mb.copy()
-# df_mb2=df_mb2.merge(df_202312, how="left", on=["合同号"])
-# df_mb["2023年12月末"]=df_mb2["余额"]
+df_mb2=df_mb.copy()
+df_mb2=df_mb2.merge(df_202312, how="left", on=["合同号"])
+df_mb["2023年12月末"]=df_mb2["余额"]
 
 '''
 将df_mb中的所有nan数字0替换
